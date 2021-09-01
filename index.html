@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .page {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            font-family: 'Open Sans', sans-serif;
+            color: #464646;
+        }
+
+        .page p {
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .page span {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .page h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        .page h2 {
+            margin-top: 10px !important;
+            margin-bottom: 10px !important;
+        }
+
+        .page a {
+            color: #464646;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .page img {
+            max-width: 100%;
+            z-index: 2;
+        }
+
+        .page ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .page ul li {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .page .specifications .inner {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .page .logo {
+            text-align: center;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .page .logo img {
+            padding: 0 15px;
+            background-color: white;
+        }
+
+        .page .logo::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+            background-color: #464646;
+            width: 100%;
+            z-index: -1;
+            opacity: .5;
+        }
+
+        .page .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .page .info_desc {
+            flex: 0 0 50%;
+        }
+
+        .page .info__media {
+            flex: 0 0 50%;
+            padding-left: 100px;
+        }
+
+        .page .info__media img {
+            width: 100%;
+        }
+
+        .page .info__video video {
+            width: 100%;
+            border: 0;
+            outline: 0;
+        }
+
+        .page table {
+            border-spacing: 0;
+            width: 100%;
+            border: none;
+        }
+
+        .page tr:nth-child(even) {
+            background-color: #f2f2f2;
+            border: none;
+        }
+
+        .page td {
+            border: none;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .page .shipping-tab {
+            background-color: #f2f2f2;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .page .shipping-tab h2 {
+            text-align: center;
+            margin-bottom: 25px !important;
+        }
+
+        .page .shipping-tab img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .page .shipping-tab p {
+            margin: 0;
+        }
+
+        .page .shipping-tab .items {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .page .shipping-tab .item {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .page .shipping-tab .item__body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        /* tabs */
+
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            position: relative;
+            margin: 3rem 0;
+            height: 14.75rem;
+            display: flex;
+        }
+
+        .tabs::before,
+        .tabs::after {
+            content: "";
+            display: table;
+        }
+
+        .tabs::after {
+            clear: both;
+        }
+
+        .tab {
+            width: 100%;
+        }
+
+        .tab-switch {
+            display: none;
+        }
+
+        .tab-label {
+            position: relative;
+            display: block;
+            line-height: 2.75em;
+            height: 3em;
+            cursor: pointer;
+            top: 0;
+            transition: all 0.25s;
+            text-align: center;
+            border-bottom: 3px solid RGBA(112, 112, 112, .5);
+            color: #8198c2;
+            white-space: nowrap;
+        }
+
+        .tab-label:hover {
+            transition: top 0.25s;
+            color: #000;
+        }
+
+        .tab-content {
+            height: 12rem;
+            position: absolute;
+            top: 56px;
+            left: 0;
+            padding: 25px 0;
+            background: #fff;
+            opacity: 0;
+            transition: all 0.35s;
+            display: none;
+        }
+
+        .tab-switch:checked+.tab-label {
+            background: #fff;
+            color: #2c3e50;
+            transition: all 0.35s;
+            z-index: 1;
+            top: 0;
+            border-bottom: 3px solid #B9CB5D;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .tab-switch:checked+label+.tab-content {
+            z-index: 2;
+            opacity: 1;
+            transition: all 0.35s;
+            width: 100%;
+            display: block;
+        }
+
+        /* tabs size */
+
+        .page .size-guide-top .item {
+            flex: 0 0 30%;
+            text-align: center;
+        }
+
+        .page .size-guide-top .item p {
+            font-size: 20px;
+        }
+
+        .page .size-guide-table .item {
+            flex: 0 0 30%;
+        }
+
+        .page .size-guide-table {
+            display: flex;
+            justify-content: flex-start;
+            margin: 50px auto;
+        }
+
+        .page .size-guide-top {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .page .size-guide-bottom .item {
+            display: flex;
+            align-items: center;
+        }
+
+        .page .size-guide-bottom .item span {
+            font-size: 49px;
+            font-weight: 600;
+            line-height: .7em;
+            color: #00a3bd;
+            margin-right: 30px;
+        }
+
+        /* media */
+
+        @media(max-width: 1300px) {
+            .page {
+                max-width: 1200px;
+            }
+
+            .items {
+                flex-wrap: wrap;
+            }
+
+            .items .item {
+                flex: 0 0 50%;
+                margin-bottom: 20px;
+            }
+
+            .page .shipping-tab .item {
+                white-space: normal;
+            }
+        }
+
+        @media(max-width: 992px) {
+            .page .info {
+                flex-direction: column;
+            }
+
+            .page .info__media {
+                padding: 0 5%;
+            }
+
+            .info__desc {
+                margin-bottom: 50px;
+            }
+
+            .page .shipping-tab {
+                padding: 40px 10px;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+                height: 50px;
+            }
+
+            .tab {
+                flex: 0 0 33.33%;
+                width: auto;
+            }
+
+            .tab-content {
+                top: 97px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .page {
+                max-width: 720px;
+            }
+
+            .page .specifications .inner {
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .page .specifications .inner ul {
+                flex: 0 0 50%;
+                margin-bottom: 25px;
+            }
+
+            .page .size-guide-top {
+                flex-direction: column;
+            }
+
+            .page .size-guide-top .item,
+            .page .size-guide-table .item {
+                max-width: 80%;
+                margin: 0 auto;
+                flex: auto;
+            }
+
+        }
+
+        @media(max-width: 576px) {
+            .page {
+                max-width: 540px;
+            }
+
+            .items {
+                flex-direction: column;
+            }
+
+            .page .specifications .inner {
+                flex-direction: column;
+            }
+
+            .page .logo img {
+                max-width: 120px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="description">
+            <h2>PRODUCT DESCRIPTION</h2>
+            <p>Brand New and Authentic Montblanc MB0125O Prescription Eyeglasses for Men, Size 55-17-155. These
+                Rectangle
+                shape optical frames come in Black frame color with Demo lenses. Specially designed for everyone, this
+                model
+                displays elegant style, impressive color and exclusive finishing which satisfies the refined taste of
+                the
+                most demanding eyeglasses wearer, making these Montblanc glasses really the perfect choice.
+            </p>
+        </div>
+        <div class="specifications">
+            <h2>SPECIFICATIONS</h2>
+            <div class="inner">
+                <ul>
+                    <li><span>Type:</span> Eyeglasses </li>
+                    <li><span>Gender:</span> Men</li>
+                    <li><span>Brand:</span> Montblanc</li>
+                    <li><span>Model:</span>Montblanc MB0125O</li>
+
+                </ul>
+                <ul>
+                    <li><span>Shape:</span> Rectangle</li>
+                    <li><span>Size:</span> 55-17-155</li>
+                    <li><span>Lens Width:</span> 55mm</li>
+                    <li><span>Bridge Width:</span> 17mm</li>
+                </ul>
+                <ul>
+                    <li><span>Temple Length:</span> 155mm</li>
+                    <li><span>Frame Material:</span> Acetate</li>
+                    <li><span>Frame Type:</span> Full Rim</li>
+                    <li><span>Frame Color:</span> Black</li>
+                </ul>
+                <ul>
+                    <li><span>Lens Color:</span> Demo Lenses</li>
+                    <li><span>Condition:</span> Brand New</li>
+                    <li><span>Warranty:</span> 2 years</li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo"><img src="https://static.eyeons.com/ebay-main/image/icon/s-l500.png""></div>
+        <div class=" info">
+            <div class="info__desc">
+                <div class="title">
+                    <h1>Polaroid™ PLD4067/S 02M2LM 51 Black Gold </h1>
+                    <p>Black Gold (02M2LM) Sunglasses with Gray Gold Mirrored lenses (PLD4067/S 02M2LM 51) by Polaroid™.
+                        Size: 51-21-140, Shape: Oval / Cat-Eye, Material: Plastic.
+                    </p>
+                </div>
+                <div class="specifications__table">
+                    <h2>SPECIFICATIONS</h2>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td scope="row">Type</td>
+                                <td>Sunglasses</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Gender</td>
+                                <td>Women</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Manufacturer</td>
+                                <td>Polaroid</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Model</td>
+                                <td>4067/S</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Frame Shape</td>
+                                <td>Oval / Cat-Eye</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Frame Material</td>
+                                <td>Plastic</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Frame Type</td>
+                                <td>Full Rim</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Size</td>
+                                <td>51-21-140</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Color</td>
+                                <td>Black Gold</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Lenses Color</td>
+                                <td>Gray Gold Mirrored</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Part Number</td>
+                                <td>PLD 4067/S 02M2LM 51</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Warranty</td>
+                                <td>2 years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="info__media">
+                <img src="https://static.eyeons.com/ebay-main/image/innovators.webp" alt="">
+                <div class="media__desc">
+                    <h2>WHAT'S IN THE BOX</h2>
+                    <p>frames, branded case/pouch, cleaning cloth and documents of authenticity</p>
+                </div>
+                <div class="media__vide">
+                    <h2>OUR VIDEO</h2>
+                    <video controls width="100%">
+                        <source src="https://static.eyeons.com/ebay-main/video/EyeOns Exclusive Eyewear.mp4"
+                            type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="shipping-tab">
+            <h2>WHY BUY FROM US?</h2>
+            <div class="items">
+                <div class="item">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/authentic-icon.svg" alt="">
+                    <div class="item__body">
+                        <span>100% Authentic</span>
+                        <p>Direct from manufacturer</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/call-icon.svg" alt="">
+                    <div class="item__body">
+                        <span>Customer Service</span>
+                        <p>Call us: (888) 808-2804</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/shipping-icon.svg" alt="">
+                    <div class="item__body">
+                        <span>FREE SHIPPING</span>
+                        <p>Most orders delivered in 1-3 bussiness days</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/secure-icon.svg" alt="">
+                    <div class="item__body">
+                        <span>Secure & Hassle-Free Shopping</span>
+                        <p>All items are covered by manufacturer warranty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="wrapper">
+            <div class="tabs">
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                    <label for="tab-1" class="tab-label">ABOUT US</label>
+                    <div class="tab-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatum laboriosam et quasi
+                        fuga sapiente magnam accusamus cumque in harum pariatur excepturi officia, ratione doloribus!
+                        Officiis sit nisi quasi veniam?
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                    <label for="tab-2" class="tab-label">PAYMENT</label>
+                    <div class="tab-content">2</div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+                    <label for="tab-3" class="tab-label">SHIPPING</label>
+                    <div class="tab-content">3</div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-4" class="tab-switch">
+                    <label for="tab-4" class="tab-label">RETURN</label>
+                    <div class="tab-content">4</div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-5" class="tab-switch">
+                    <label for="tab-5" class="tab-label">WARRANTY</label>
+                    <div class="tab-content">5</div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-6" class="tab-switch">
+                    <label for="tab-6" class="tab-label">SIZE GUIDE</label>
+                    <div class="tab-content">
+                        <div class="size-guide">
+                            <div class="size-guide-top">
+                                <div class="item">
+                                    <img src="https://static.eyeons.com/ebay-main/image/lens-widh.webp" alt="">
+                                    <p>Lens width (mm)</p>
+                                </div>
+                                <div class="item">
+                                    <img src="https://static.eyeons.com/ebay-main/image/bridge-width.webp" alt="">
+                                    <p>Bridge width (mm)</p>
+                                </div>
+                                <div class="item">
+                                    <img src="https://static.eyeons.com/ebay-main/image/temple-length.webp" alt="">
+                                    <p>Temple length (mm) </p>
+                                </div>
+                            </div>
+                            <div class="size-guide-table">
+                                <div class="item"> <img src="https://static.eyeons.com/ebay-main/image/table.webp"
+                                        alt=""></div>
+                            </div>
+                            <div class="size-guide-bottom">
+                                <div class="item"><span>A</span>
+                                    <p>The first number — the lens size — represents the horizontal width of the lenses.
+                                        In
+                                        this case, the openings in the frame for the lenses are 48 mm wide. Generally,
+                                        the
+                                        eye size of most eyeglass frames ranges from 40 mm to 62 mm.</p>
+                                </div>
+                                <div class="item"><span>B</span>
+                                    <p>The second number — the bridge size — is the distance between the lenses. In
+                                        other
+                                        words, it's the size of the "bridge" of the frame that rests on your nose. In
+                                        this
+                                        case, the frame bridge is 19 mm wide. In most cases, the bridge size of eyeglass
+                                        frames ranges from 14 mm to 24 mm.</p>
+                                </div>
+                                <div class="item"><span>C</span>
+                                    <p>The third number — the temple length — is the length of the "stems" of the frame,
+                                        measured from the frame hinge to the back tip of the temple. In this case, the
+                                        temple length is 140 mm. Temple lengths generally range from 120 mm to 150 mm.
+                                    </p>
+                                </div>
+                            </div>
+                            <p>Often a small square (rather than a dash) will separate the eye size and the bridge size
+                                on the frame.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
