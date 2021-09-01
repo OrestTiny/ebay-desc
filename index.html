@@ -148,7 +148,7 @@
 
         .page .shipping-tab img {
             height: 50px;
-            margin-right: 15px;
+            margin-bottom: 15px;
         }
 
         .page .shipping-tab p {
@@ -162,7 +162,8 @@
 
         .page .shipping-tab .item {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             white-space: nowrap;
         }
 
@@ -282,17 +283,9 @@
 
         }
 
-        .page .size-guide-bottom .item {
-            display: flex;
-            align-items: center;
-        }
 
-        .page .size-guide-bottom .item span {
-            font-size: 49px;
-            font-weight: 600;
-            line-height: .7em;
-            color: #00a3bd;
-            margin-right: 30px;
+        .page .size-guide-bottom .item .item_mb {
+            display: none;
         }
 
         /* media */
@@ -374,6 +367,14 @@
                 flex: auto;
             }
 
+            .page .size-guide-bottom .item img {
+                display: none;
+            }
+
+            .page .size-guide-bottom .item .item_mb {
+                display: block;
+            }
+
         }
 
         @media(max-width: 576px) {
@@ -439,7 +440,8 @@
                 </ul>
             </div>
         </div>
-        <div class="logo"><img src="https://static.eyeons.com/ebay-main/image/icon/s-l500.png""></div>
+        <div class="logo"><img src="https://static.eyeons.com/ebay-main/image/icon/s-l500.png" title="Eyeons"
+                alt="eyeons"></div>
         <div class=" info">
             <div class="info__desc">
                 <div class="title">
@@ -505,7 +507,7 @@
                 </div>
             </div>
             <div class="info__media">
-                <img src="https://static.eyeons.com/ebay-main/image/innovators.webp" alt="">
+                <img src="https://static.eyeons.com/ebay-main/image/innovators.webp">
                 <div class="media__desc">
                     <h2>WHAT'S IN THE BOX</h2>
                     <p>frames, branded case/pouch, cleaning cloth and documents of authenticity</p>
@@ -524,28 +526,28 @@
             <h2>WHY BUY FROM US?</h2>
             <div class="items">
                 <div class="item">
-                    <img src="https://static.eyeons.com/ebay-main/image/icon/authentic-icon.svg" alt="">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/authentic-icon.svg">
                     <div class="item__body">
                         <span>100% Authentic</span>
                         <p>Direct from manufacturer</p>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="https://static.eyeons.com/ebay-main/image/icon/call-icon.svg" alt="">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/call-icon.svg">
                     <div class="item__body">
                         <span>Customer Service</span>
                         <p>Call us: (888) 808-2804</p>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="https://static.eyeons.com/ebay-main/image/icon/shipping-icon.svg" alt="">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/shipping-icon.svg">
                     <div class="item__body">
                         <span>FREE SHIPPING</span>
                         <p>Most orders delivered in 1-3 bussiness days</p>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="https://static.eyeons.com/ebay-main/image/icon/secure-icon.svg" alt="">
+                    <img src="https://static.eyeons.com/ebay-main/image/icon/secure-icon.svg">
                     <div class="item__body">
                         <span>Secure & Hassle-Free Shopping</span>
                         <p>All items are covered by manufacturer warranty</p>
@@ -593,48 +595,28 @@
                         <div class="size-guide">
                             <div class="size-guide-top">
                                 <div class="item">
-                                    <img src="https://static.eyeons.com/ebay-main/image/lens-widh.webp" alt="">
+                                    <img src="https://static.eyeons.com/ebay-main/image/lens-widh.webp">
                                     <p>Lens width (mm)</p>
                                 </div>
                                 <div class="item">
-                                    <img src="https://static.eyeons.com/ebay-main/image/bridge-width.webp" alt="">
+                                    <img src="https://static.eyeons.com/ebay-main/image/bridge-width.webp">
                                     <p>Bridge width (mm)</p>
                                 </div>
                                 <div class="item">
-                                    <img src="https://static.eyeons.com/ebay-main/image/temple-length.webp" alt="">
+                                    <img src="https://static.eyeons.com/ebay-main/image/temple-length.webp">
                                     <p>Temple length (mm) </p>
                                 </div>
                             </div>
                             <div class="size-guide-table">
-                                <div class="item"> <img src="https://static.eyeons.com/ebay-main/image/table.webp"
-                                        alt=""></div>
+                                <div class="item"> <img src="https://static.eyeons.com/ebay-main/image/table.webp">
+                                </div>
                             </div>
                             <div class="size-guide-bottom">
-                                <div class="item"><span>A</span>
-                                    <p>The first number — the lens size — represents the horizontal width of the lenses.
-                                        In
-                                        this case, the openings in the frame for the lenses are 48 mm wide. Generally,
-                                        the
-                                        eye size of most eyeglass frames ranges from 40 mm to 62 mm.</p>
-                                </div>
-                                <div class="item"><span>B</span>
-                                    <p>The second number — the bridge size — is the distance between the lenses. In
-                                        other
-                                        words, it's the size of the "bridge" of the frame that rests on your nose. In
-                                        this
-                                        case, the frame bridge is 19 mm wide. In most cases, the bridge size of eyeglass
-                                        frames ranges from 14 mm to 24 mm.</p>
-                                </div>
-                                <div class="item"><span>C</span>
-                                    <p>The third number — the temple length — is the length of the "stems" of the frame,
-                                        measured from the frame hinge to the back tip of the temple. In this case, the
-                                        temple length is 140 mm. Temple lengths generally range from 120 mm to 150 mm.
-                                    </p>
+                                <div class="item">
+                                    <img src="https://static.eyeons.com/ebay-main/image/1.webp">
+                                    <img class="item_mb" src="https://static.eyeons.com/ebay-main/image/1_mb.webp">
                                 </div>
                             </div>
-                            <p>Often a small square (rather than a dash) will separate the eye size and the bridge size
-                                on the frame.
-                            </p>
                         </div>
                     </div>
                 </div>
