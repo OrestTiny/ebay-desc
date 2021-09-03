@@ -400,4 +400,8 @@
         align-items: center;
         text-align: center;
     }
+
+    .page .info__media {
+        padding: 0;
+    }
 }
