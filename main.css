@@ -389,4 +389,15 @@
         max-width: 120px;
 
     }
+
+    .page .shipping-tab .items {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .page .shipping-tab .item {
+        align-items: center;
+        text-align: center;
+    }
 }
