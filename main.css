@@ -13,6 +13,7 @@
 .page p {
     font-weight: 400;
     font-size: 14px;
+    line-height: 23px;
 }
 
 .page span {
@@ -158,8 +159,9 @@
 .page .shipping-tab .item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     white-space: nowrap;
+    text-align: center;
 }
 
 .page .shipping-tab .item__body {
@@ -251,6 +253,38 @@
     display: block;
 }
 
+/* tabs about us */
+.page .tab__about_us p {
+    margin: 0;
+}
+
+.page .tab__about_us {
+    display: grid;
+    grid-template-columns: 600px auto;
+    grid-template-rows: 42% 58%;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "item-img item-top"
+        "item-img item-bot";
+}
+
+.page .tab__about_us .item-img {
+    grid-area: item-img;
+}
+
+.page .tab__about_us .item-top {
+    grid-area: item-top;
+    padding-left: 50px;
+}
+
+.page .tab__about_us .item-bot {
+    grid-area: item-bot;
+    padding-left: 50px;
+}
+
+
 /* tabs size */
 
 .page .size-guide-top .item {
@@ -275,12 +309,14 @@
 .page .size-guide-top {
     display: flex;
     justify-content: space-between;
-
 }
-
 
 .page .size-guide-bottom .item .item_mb {
     display: none;
+}
+
+.page .tab:last-child .tab-content {
+    min-height: 800px;
 }
 
 /* media */
@@ -394,11 +430,6 @@
         flex-wrap: nowrap;
         flex-direction: column;
         justify-content: center;
-    }
-
-    .page .shipping-tab .item {
-        align-items: center;
-        text-align: center;
     }
 
     .page .info__media {
