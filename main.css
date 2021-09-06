@@ -68,6 +68,7 @@
 .page .logo img {
     padding: 0 15px;
     background-color: white;
+    max-width: 165px;
 }
 
 .page .logo::before {
