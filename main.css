@@ -272,6 +272,7 @@
 
 .page .tab__about_us .item-img {
     grid-area: item-img;
+    text-align: center;
 }
 
 .page .tab__about_us .item-top {
@@ -319,9 +320,13 @@
     min-height: 800px;
 }
 
+.page .tab:first-child .tab-content {
+    min-height: 400px;
+}
+
 /* media */
 
-@media(max-width: 1300px) {
+@media(max-width: 1360px) {
     .page {
         max-width: 1200px;
     }
@@ -337,6 +342,26 @@
 
     .page .shipping-tab .item {
         white-space: normal;
+    }
+
+    .page .tab__about_us {
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .page .tab__about_us .item-bot {
+        padding-top: 15px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .page .tab__about_us {
+        grid-template-areas:
+            "item-img item-top"
+            "item-bot item-bot";
+    }
+
+    .page .tab__about_us .item-bot {
+        padding-left: 0;
     }
 }
 
@@ -369,6 +394,20 @@
 
     .tab-content {
         top: 97px;
+    }
+
+    .page .tab__about_us {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "item-img"
+            "item-top"
+            "item-bot";
+    }
+
+    .page .tab__about_us .item-top {
+        padding-left: 0px;
+        padding-top: 15px;
     }
 }
 
