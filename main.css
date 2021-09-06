@@ -254,13 +254,16 @@
     display: block;
 }
 
+.page .tabs p {
+    margin: 0;
+}
+
 /* tab payment */
-
-
 .page .tab__payment {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 25px;
 }
 
 .page .tab__payment .item {
@@ -269,13 +272,19 @@
     justify-content: center;
     align-items: center;
     border: 1px solid #e2e2e2;
+    height: 70px;
+    transition: all .4s;
+}
+
+.page .tab__payment .item:hover {
+    border-color: #000;
+}
+
+.page .tab__payment img {
+    height: auto;
 }
 
 /* tab about us */
-.page .tab__about_us p {
-    margin: 0;
-}
-
 .page .tab__about_us {
     display: grid;
     grid-template-columns: 600px auto;
@@ -424,6 +433,15 @@
         padding-left: 0px;
         padding-top: 15px;
     }
+
+    .page .tab__payment {
+        flex-wrap: wrap;
+    }
+
+    .page .tab__payment .item {
+        flex-basis: 30%;
+        margin-bottom: 15px;
+    }
 }
 
 @media(max-width: 768px) {
@@ -459,7 +477,6 @@
     .page .size-guide-bottom .item .item_mb {
         display: block;
     }
-
 }
 
 @media(max-width: 576px) {
@@ -467,7 +484,7 @@
         max-width: 540px;
     }
 
-    .items {
+    .page .shipping-tab .items {
         flex-direction: column;
     }
 
@@ -488,5 +505,9 @@
 
     .page .info__media {
         padding: 0;
+    }
+
+    .page .tab__payment .item {
+        flex-basis: 48%;
     }
 }
