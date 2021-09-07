@@ -236,7 +236,7 @@
     opacity: 0;
     transition: all 0.35s;
     display: none;
-    min-height: 315px;
+    min-height: 350px;
 }
 
 .tab-switch:checked+.tab-label {
